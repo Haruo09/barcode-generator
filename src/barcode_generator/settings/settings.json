@@ -1,0 +1,26 @@
+{
+  "output": "codigos.pdf",
+  "border": true,
+  "code-class": "code39",
+  "grid": {
+    "rows": 13,
+    "cols": 5
+  },
+  "margin": {
+    "x": 20,
+    "y": 20
+  },
+  "padding": {
+    "x": 10,
+    "y": 10
+  },
+  "range": {
+    "first": 3000,
+    "qtd": 65
+  },
+  "writer_options": {
+    "module_width": 0.4,
+    "module_height": 15.0,
+    "font_size": 10 
+  }
+}

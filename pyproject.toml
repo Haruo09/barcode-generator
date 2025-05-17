@@ -1,0 +1,26 @@
+[project]
+name = "barcode-generator"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Haruo09",email = "fabio.hn01@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.9,<3.13"
+dependencies = [
+    "svglib (>=1.5.1,<2.0.0)",
+    "reportlab (>=4.4.1,<5.0.0)",
+    "python-barcode (>=0.15.1,<0.16.0)",
+]
+
+[tool.poetry]
+package-mode = false
+
+
+[tool.poetry.group.dev.dependencies]
+isort = "^6.0.1"
+blue = "^0.9.1"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
