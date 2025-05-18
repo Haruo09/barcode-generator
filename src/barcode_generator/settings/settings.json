@@ -15,8 +15,8 @@
     "y": 10
   },
   "range": {
-    "first": 3000,
-    "qtd": 65
+    "first": 2000,
+    "qtd": 130 
   },
   "writer_options": {
     "module_width": 0.4,
