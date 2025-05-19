@@ -6,6 +6,7 @@ import barcode
 from barcode.writer import SVGWriter
 from reportlab.graphics import renderPDF
 from reportlab.lib.pagesizes import A4
+from reportlab.lib.units import mm
 from reportlab.pdfgen import canvas
 from svglib.svglib import svg2rlg
 
@@ -22,15 +23,17 @@ with open(settings_file_path, 'r') as settings_json_file:
     cols = settings['grid']['cols']
 
     # Grid de etiquetas
-    margin_x = settings['margin']['x']
-    margin_y = settings['margin']['y']
+    margin_x = settings['margin']['x'] * mm
+    margin_y = settings['margin']['y'] * mm
 
-    padding_x = settings['padding']['x']
-    padding_y = settings['padding']['y']
+    padding_x = settings['padding']['x'] * mm
+    padding_y = settings['padding']['y'] * mm
 
     # Tamanho de cada etiqueta
-    cell_w = (page_w - 2 * margin_x - (cols - 1) * padding_x) / cols
-    cell_h = (page_h - 2 * margin_y - (rows - 1) * padding_y) / rows
+    cell_h = 21.2 * mm
+    cell_w = 38.2 * mm 
+    # cell_w = (page_w - 2 * margin_x - (cols - 1) * padding_x) / cols
+    # cell_h = (page_h - 2 * margin_y - (rows - 1) * padding_y) / rows
 
     # Inicializa PDF
     c = canvas.Canvas(output_path, pagesize=A4)
@@ -66,8 +69,10 @@ with open(settings_file_path, 'r') as settings_json_file:
             c.showPage()
 
         # Posição da célula
+        # x = margin_x + coluna * (cell_w + padding_x)
+        # y = page_h - margin_y - (linha + 1) * (cell_h + padding_y) + padding_y
         x = margin_x + coluna * (cell_w + padding_x)
-        y = page_h - margin_y - (linha + 1) * (cell_h + padding_y) + padding_y
+        y = page_h - margin_y - (linha + 1) * (cell_h + padding_y) + padding_y 
 
         # Escalar o código de barras para caber
         escala_w = cell_w / desenho.width  # NOQA

@@ -7,16 +7,16 @@
     "cols": 5
   },
   "margin": {
-    "x": 20,
-    "y": 20
+    "x": 5,
+    "y": 9 
   },
   "padding": {
-    "x": 10,
-    "y": 10
+    "x": 2.5,
+    "y": 0 
   },
   "range": {
-    "first": 2000,
-    "qtd": 130 
+    "first": 3000,
+    "qtd": 65 
   },
   "writer_options": {
     "module_width": 0.4,
