@@ -62,8 +62,8 @@ with open(settings_file_path, 'r') as settings_json_file:
 
         # Calcular posição na grade
         idx = i
-        linha = idx % (rows * cols) // cols
-        coluna = idx % cols
+        linha = (idx % (rows * cols) // cols) + 0.2
+        coluna = (idx % cols) - 0.015
 
         if idx % (rows * cols) == 0 and idx != 0:
             c.showPage()
@@ -89,9 +89,10 @@ with open(settings_file_path, 'r') as settings_json_file:
         y_central = y + (cell_h - altura_codigo) / 2
 
         # Desenhar a borda da etiqueta
-        c.setLineWidth(1)
-        c.setStrokeColorRGB(0, 0, 0)
-        c.rect(x, y, cell_w, cell_h)
+        if settings["draw-rectangle"]:
+            c.setLineWidth(1)
+            c.setStrokeColorRGB(255, 255, 255)
+            c.rect(x, y, cell_w, cell_h)
 
         # Desenhar o código centralizado
         renderPDF.draw(desenho, c, x_central, y_central)

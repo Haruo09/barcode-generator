@@ -1,5 +1,5 @@
 {
-  "output": "codigos.pdf",
+  "output": "codigos_sem_borda_VF.pdf",
   "border": true,
   "code-class": "code39",
   "grid": {
@@ -16,11 +16,12 @@
   },
   "range": {
     "first": 3000,
-    "qtd": 65 
+    "qtd": 2015 
   },
   "writer_options": {
     "module_width": 0.4,
     "module_height": 15.0,
     "font_size": 10 
-  }
+  },
+  "draw-rectangle": 1 
 }
